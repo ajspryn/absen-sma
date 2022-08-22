@@ -19,9 +19,10 @@ class CreateSiswasTable extends Migration
             $table->string('nisn_siswa');
             $table->string('nama_siswa');
             $table->string('jenis_kelamin');
-            $table->string('jurusan_siswa');
-            $table->string('tingkatan_kelas');
-            $table->string('kelas_siswa');
+            $table->string('alamat');
+            $table->string('no_telp');
+            $table->string('nama_ibu_kandung');
+            $table->string('kelas_id');
             $table->timestamps();
         });
     }

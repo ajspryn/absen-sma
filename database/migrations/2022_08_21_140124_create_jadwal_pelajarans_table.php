@@ -15,6 +15,11 @@ class CreateJadwalPelajaransTable extends Migration
     {
         Schema::create('jadwal_pelajarans', function (Blueprint $table) {
             $table->id();
+            $table->string('mapel_id');
+            $table->string('kelas_id');
+            $table->string('hari');
+            $table->string('waktu_mulai');
+            $table->string('waktu_berakhir');
             $table->timestamps();
         });
     }

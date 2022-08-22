@@ -15,6 +15,9 @@ class CreateJadwalPiketsTable extends Migration
     {
         Schema::create('jadwal_pikets', function (Blueprint $table) {
             $table->id();
+            $table->string('guru_id');
+            $table->string('user_id');
+            $table->string('jadwal_piket');
             $table->timestamps();
         });
     }
