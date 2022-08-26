@@ -21,132 +21,209 @@
             <!-- Basic Horizontal form layout section start -->
             <!-- FORM  -->
             <section id="basic-horizontal-layouts">
-
                 <div class="col-md-12 col-12">
                     <div class="card">
                         <div class="card-header">
-                            <h4 class="card-title">Pengaturan Sekolah</h4>
+                            <h4 class="card-title">Pengaturan Jadwal</h4>
                         </div>
                         <div class="card-body">
-
                             <div class="row">
-                                <form action="#" class="invoice-repeater">
-                                    <div data-repeater-list="invoice">
+                                <form action="pengaturanjadwalmapel" method="post" class="invoice-repeater">
+                                    @csrf
+                                    <div data-repeater-list="jadwalmapel">
                                         <div data-repeater-item>
                                             <div class="row d-flex align-items-end">
+                                                <div class="row match-height">
+                                                    <div class="col-lg-4 col-12">
+                                                        <div class="row">
+                                                            <div class="row match-height">
+                                                                <!-- Earnings Card -->
+                                                                <div class="col-lg-12 col-md-6 col-8">
+                                                                    <label class="form-label"
+                                                                        for="hari">Jurusan</label>
+                                                                    <select class="select2 form-select" name="hari"
+                                                                        id="hari">
+                                                                        <option label="hari"></option>
 
+                                                                        <option value="Senin">
+                                                                            Senin</option>
 
-                                                <div class="col-md-2 mb-1">
-                                                    <label class="form-label" for="mapel_ajar">Mata
-                                                        Pelajaran</label>
-                                                    <select class="select2 form-select" name="mapel_id" id="mapel_ajar">
-                                                        <option label="maper_ajar"></option>
-                                                        @foreach ($mapels as $mapel)
-                                                            <option value="{{ $mapel->id }}">
-                                                                {{ $mapel->mata_pelajaran }}</option>
-                                                        @endforeach
+                                                                        <option value="Selasa">
+                                                                            Selasa</option>
 
+                                                                        <option value="Rabu">
+                                                                            Rabu</option>
 
-                                                    </select>
-                                                </div>
+                                                                        <option value="Kamis">
+                                                                            Kamis</option>
 
-                                                <div class="col-md-2 mb-1">
-                                                    <label class="form-label" for="select2-disabled-result">Hari
-                                                        Pelajaran</label>
-                                                    <select class="select2 form-select" id="select2-disabled-result">
-                                                        <option value="senin">Senin</option>
-                                                        <option value="selasa" disabled>Selasa</option>
-                                                        <option value="Rabu">Rabu</option>
-                                                        <option value="Kamis" disabled>Kamis</option>
-                                                        <option value="Jum'at" disabled>Jum'at</option>
-                                                        <option value="Sabtu" disabled>Sabtu</option>
+                                                                        <option value="Jumat">
+                                                                            Jumat</option>
 
-                                                    </select>
-                                                </div>
+                                                                        <option value="Sabtu">
+                                                                            Sabtu</option>
 
-                                                <div class="col-md-2 col-12">
-                                                    <div class="mb-1">
-                                                        <label class="form-label" for="itemcost">kelas</label>
-                                                        <input type="number" class="form-control" id="jurusan"
-                                                            name="jurusan" aria-describedby="itemcost"
-                                                            placeholder="Isikan jurusan" />
+                                                                    </select>
+                                                                </div>
+                                                                <!--/ Earnings Card -->
+                                                                <!-- Bar Chart - Orders -->
+                                                                <div class="col-lg-6 col-md-3 col-4">
+
+                                                                    <label class="form-label" for="jam_mulai">Jam
+                                                                        Mulai</label>
+                                                                    <input type="text" id="jam_mulai"
+                                                                        name="jam_mulai"
+                                                                        class="form-control flatpickr-time text-start"
+                                                                        placeholder="HH:MM" />
+
+                                                                </div>
+                                                                <!--/ Bar Chart - Orders -->
+                                                                <!-- Line Chart - Profit -->
+                                                                <div class="col-lg-6 col-md-3 col-4">
+
+                                                                    <label class="form-label" for="jam_akhir">Jam
+                                                                        Akhir</label>
+                                                                    <input type="text" id="jam_akhir"
+                                                                        name="jam_akhir"
+                                                                        class="form-control flatpickr-time text-start"
+                                                                        placeholder="HH:MM" />
+                                                                </div>
+                                                                <!--/ Line Chart - Profit -->
+                                                            </div>
+                                                        </div>
+                                                    </div>
+                                                    <div class="col-lg-4 col-12">
+                                                        <div class="row">
+                                                            <div class="row match-height">
+                                                                <!-- Earnings Card -->
+                                                                <div class="col-lg-12 col-md-6 col-8">
+
+                                                                    <label class="form-label"
+                                                                        for="jurusan_id">Jurusan</label>
+                                                                    <select class="select2 form-select"
+                                                                        name="jurusan_id" id="jurusan_id">
+                                                                        <option label="jurusan_id"></option>
+                                                                        @foreach ($jurusans as $jurusan)
+                                                                            <option value="{{ $jurusan->id }}">
+                                                                                {{ $jurusan->jurusan }}</option>
+                                                                        @endforeach
+                                                                    </select>
+                                                                </div>
+                                                            </div>
+                                                            <!--/ Earnings Card -->
+                                                            <!-- Bar Chart - Orders -->
+                                                            <div class="col-lg-6 col-md-3 col-4">
+
+                                                                <label class="form-label"
+                                                                    for="tingkatan_kelas_id">Tingkatan Kelas</label>
+                                                                <select class="select2 form-select"
+                                                                    name="tingkatan_kelas_id" id="tingkatan_kelas_id">
+                                                                    <option label="tingkatan_kelas_id"></option>
+                                                                    @foreach ($tingkatans as $tingkatan)
+                                                                        <option value="{{ $tingkatan->id }}">
+                                                                            {{ $tingkatan->tingkatan_kelas }}</option>
+                                                                    @endforeach
+                                                                </select>
+
+                                                            </div>
+                                                            <!--/ Bar Chart - Orders -->
+
+                                                            <!-- Line Chart - Profit -->
+                                                            <div class="col-lg-6 col-md-3 col-4">
+
+                                                                <label class="form-label"
+                                                                    for="tingkatan_kelas_id">Kelas</label>
+                                                                <select class="select2 form-select"
+                                                                    name="tingkatan_kelas_id" id="tingkatan_kelas_id">
+                                                                    <option label="tingkatan_kelas_id"></option>
+                                                                    @foreach ($kelass as $kelas)
+                                                                        <option value="{{ $kelas->id }}">
+                                                                            {{ $kelas->kelas }}</option>
+                                                                    @endforeach
+                                                                </select>
+
+                                                            </div>
+                                                            <!--/ Line Chart - Profit -->
+                                                        </div>
                                                     </div>
                                                 </div>
 
-                                                <div class="col-md-2 mb-1">
-                                                    <label class="form-label" for="fp-time">Jam Mulai</label>
-                                                    <input type="text" id="fp-time"
-                                                        class="form-control flatpickr-time text-start"
-                                                        placeholder="HH:MM" />
-                                                </div>
-                                                <div class="col-md-2 mb-1">
-                                                    <label class="form-label" for="fp-time">Jam Akhir</label>
-                                                    <input type="text" id="fp-time"
-                                                        class="form-control flatpickr-time text-start"
-                                                        placeholder="HH:MM" />
-                                                </div>
-                                                <div class="col-md-2 mb-1">
-                                                    <label class="form-label" for="guru_ajar">Guru Pengampu</label>
-                                                    <select class="select2 form-select" name="guru_id" id="guru_ajar">
-                                                        <option label="guru_ajar"></option>
-                                                        @foreach ($gurus as $guru)
-                                                            <option value="{{ $mapel->id }}">
-                                                                {{ $mapel->name }}</option>
-                                                        @endforeach
-
-
-                                                    </select>
-                                                </div>
-
-
-                                                <div class="col-md-2 col-12 mb-50">
-                                                    <div class="mb-1">
-                                                        <button class="btn btn-outline-danger text-nowrap px-1"
-                                                            data-repeater-delete type="button">
-                                                            <i data-feather="x" class="me-25"></i>
-                                                            <span>Delete</span>
-                                                        </button>
+                                                <div class="col match-height">
+                                                    <div class="col-lg-10 mb-12">
+                                                        <label class="form-label" for="mapel_ajar">Mata
+                                                            Pelajaran</label>
+                                                        <select class="select2 form-select" name="mapel_id"
+                                                            id="mapel_ajar">
+                                                            <option label="maper_ajar"></option>
+                                                            @foreach ($mapels as $mapel)
+                                                                <option value="{{ $mapel->id }}">
+                                                                    {{ $mapel->mata_pelajaran }}</option>
+                                                            @endforeach
+                                                        </select>
+                                                    </div>
+                                                    <div class="col-lg-10 mb-12">
+                                                        <label class="form-label" for="guru_id">Guru
+                                                            Pengampu</label>
+                                                        <select class="select2 form-select" name="guru_id"
+                                                            id="guru_id">
+                                                            <option label="guru_ajar"></option>
+                                                            @foreach ($gurus as $guru)
+                                                                <option value="{{ $guru->id }}">
+                                                                    {{ $guru->name }}</option>
+                                                            @endforeach
+                                                        </select>
                                                     </div>
                                                 </div>
                                             </div>
+
                                             <hr />
-                                        </div>
-                                    </div>
-                                    <div class="row">
-                                        <div class="col-12">
-                                            <button class="btn btn-icon btn-primary" type="button"
-                                                data-repeater-create>
-                                                <i data-feather="plus" class="me-25"></i>
-                                                <span>Add New</span>
-                                            </button>
-                                        </div>
-                                    </div>
-                                    <br>
-                                    <div class="row">
-                                        <div class="col-md-2 col-12 mb-50">
-                                            <button type="sumbit" class="btn btn-success me-1">Simpan</button>
+                                            <div class="col-md-2 mb-12">
 
-                                        </div>
-                                    </div>
+                                                <button class="btn btn-outline-danger text-nowrap px-1"
+                                                    data-repeater-delete type="button">
+                                                    <i data-feather="x" class="me-25"></i>
+                                                    <span>Delete</span>
+                                                </button>
 
-                                </form>
+                                            </div>
+                                        </div>
+                                        <hr />
+                                    </div>
+                            </div>
+                            <div class="row">
+                                <div class="col-12">
+                                    <button class="btn btn-icon btn-primary" type="button" data-repeater-create>
+                                        <i data-feather="plus" class="me-25"></i>
+                                        <span>Add New</span>
+                                    </button>
+                                </div>
+                            </div>
+                            <br>
+                            <div class="row">
+                                <div class="col-md-2 col-12 mb-50">
+                                    <button type="sumbit" class="btn btn-success me-1">Simpan</button>
+
+                                </div>
                             </div>
 
+                            </form>
                         </div>
+
                     </div>
                 </div>
-                <!-- /FORM  -->
-
-
-
-
-
-            </section>
-            <!-- Basic Horizontal form layout section end -->
-
-
         </div>
+        <!-- /FORM  -->
+
+
+
+
+
+        </section>
+        <!-- Basic Horizontal form layout section end -->
+
+
     </div>
+</div>
 </div>
 <!-- END: Content-->
 
