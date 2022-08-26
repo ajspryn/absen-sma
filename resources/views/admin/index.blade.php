@@ -22,14 +22,44 @@
                     <!-- PENGATURAAN SEKOLAH -->
                     <div class="col-md-4 col-sm-6 col-12 kb-search-content">
                         <div class="card">
-                            <a href="/pengaturansekolah">
+                            <a href="/pengaturanmapel">
                                 <img src="../../../app-assets/images/illustration/sales.svg" class="card-img-top"
                                     alt="knowledge-base-image" />
 
                                 <div class="card-body text-center">
-                                    <h4>Pengaturan Sekolah</h4>
+                                    <h4>Pengaturan Matapelajaran</h4>
                                     <p class="text-body mt-1 mb-0">
-                                        Menambahkan jurusan dan kelas
+                                        Mengatur dan Menambahkan Mata Pelajaran
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-12 kb-search-content">
+                        <div class="card">
+                            <a href="/pengaturanguru">
+                                <img src="../../../app-assets/images/illustration/sales.svg" class="card-img-top"
+                                    alt="knowledge-base-image" />
+
+                                <div class="card-body text-center">
+                                    <h4>Pengaturan Guru</h4>
+                                    <p class="text-body mt-1 mb-0">
+                                        Update dan Ganti Password
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 col-12 kb-search-content">
+                        <div class="card">
+                            <a href="/pengaturanjadwal">
+                                <img src="../../../app-assets/images/illustration/sales.svg" class="card-img-top"
+                                    alt="knowledge-base-image" />
+
+                                <div class="card-body text-center">
+                                    <h4>Pengaturan Jadwal</h4>
+                                    <p class="text-body mt-1 mb-0">
+                                        Menentukan Jadwal Guru
                                     </p>
                                 </div>
                             </a>

@@ -41,6 +41,8 @@ License: You must have a valid license purchased only from themeforest(the above
     <link rel="stylesheet" type="text/css"
         href="../../../app-assets/vendors/css/tables/datatable/rowGroup.bootstrap5.min.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/pickers/flatpickr/flatpickr.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/calendars/fullcalendar.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/vendors/css/forms/select/select2.min.css">
     <!-- END: Vendor CSS-->
 
     <!-- BEGIN: Theme CSS-->
@@ -56,6 +58,9 @@ License: You must have a valid license purchased only from themeforest(the above
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css/core/menu/menu-types/horizontal-menu.min.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/page-knowledge-base.min.css">
     <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/forms/form-validation.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/forms/pickers/form-flat-pickr.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/pages/app-calendar.min.css">
+    <link rel="stylesheet" type="text/css" href="../../../app-assets/css/plugins/forms/pickers/form-pickadate.min.css">
     <!-- END: Page CSS-->
 
     <!-- BEGIN: Custom CSS-->
@@ -80,8 +85,8 @@ License: You must have a valid license purchased only from themeforest(the above
                             <svg viewbox="0 0 139 95" version="1.1" xmlns="http://www.w3.org/2000/svg"
                                 xmlns:xlink="http://www.w3.org/1999/xlink" height="24">
                                 <defs>
-                                    <lineargradient id="linearGradient-1" x1="100%" y1="10.5120544%" x2="50%"
-                                        y2="89.4879456%">
+                                    <lineargradient id="linearGradient-1" x1="100%" y1="10.5120544%"
+                                        x2="50%" y2="89.4879456%">
                                         <stop stop-color="#000000" offset="0%"></stop>
                                         <stop stop-color="#FFFFFF" offset="100%"></stop>
                                     </lineargradient>

@@ -2,9 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mapel;
 use Illuminate\Http\Request;
 
-class PengaturansekolahController extends Controller
+class PengaturanmapelController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -13,7 +14,10 @@ class PengaturansekolahController extends Controller
      */
     public function index()
     {
-        return view('admin.PengaturanSekolah');
+        return view('admin.mapel.index  ', [
+            'mapels' => Mapel::all(),
+            'datamapel' => Mapel::get()->count(),
+        ]);
     }
 
     /**
@@ -34,7 +38,15 @@ class PengaturansekolahController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        foreach ($request->mapel as $key => $value) {
+            Mapel::create([
+                'mata_pelajaran' => $value['mata_pelajaran'],
+                'jurusan' => $value['jurusan'],
+                'tingkatan_kelas' => $value['tingkatan_kelas'],
+            ]);
+        }
+
+        return redirect('/pengaturanmapel')->with('success', 'mapel berhasil ditambah');
     }
 
     /**
@@ -68,8 +80,19 @@ class PengaturansekolahController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+
+        $rules = [
+            'mata_pelajaran' => 'required',
+            'jurusan' => 'required',
+            'tingkatan_kelas' => 'required',
+
+        ];
+        $input = $request->validate($rules);
+
+        Mapel::where('id', $id)->update($input);
+        return redirect('/pengaturanmapel')->with('success', 'Password berhasil diubah');
     }
+
 
     /**
      * Remove the specified resource from storage.
@@ -79,6 +102,7 @@ class PengaturansekolahController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Mapel::destroy('id', $id);
+        return redirect('/pengaturanmapel')->with('success', 'Data Berhasil Di hapus');
     }
 }

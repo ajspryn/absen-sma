@@ -7,6 +7,7 @@ use App\Http\Controllers\Welcome2Controller;
 use App\Http\Controllers\Welcome3Controller;
 use App\Http\Controllers\GurupiketController;
 use App\Http\Controllers\Auth\LoginController;
+use App\Http\Controllers\PengaturanmapelController;
 use App\Http\Controllers\SesiabsensiController;
 use App\Http\Controllers\TambahsiswaController;
 use App\Http\Controllers\RekapabsensiController;
@@ -33,12 +34,12 @@ Auth::routes();
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 Route::get('/welcome2', [Welcome2Controller::class, 'index'])->name('home');
 Route::get('/welcome3', [Welcome3Controller::class, 'index'])->name('home');
-Route::post('/logout', [LoginController::class, 'logout']);
+
 
 Route::resource('/pengaturansiswa', PengaturansiswaController::class);
 Route::resource('/tambahsiswa', TambahsiswaController::class);
 Route::resource('/gurupiket', GurupiketController::class);
-Route::resource('/pengaturansekolah', PengaturansekolahController::class);
+Route::resource('/pengaturanmapel', PengaturanmapelController::class);
 Route::resource('/guru', GuruController::class);
 Route::resource('/rekapabsensi', RekapabsensiController::class);
 Route::resource('/sesiabsensi', SesiabsensiController::class);
