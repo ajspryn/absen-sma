@@ -2,12 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Jurusan;
 use App\Models\Mapel;
-use App\Models\TingkatanKelas;
+use App\Models\JadwalMapel;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
-class PengaturanmapelController extends Controller
+class PengaturanjadwalController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +16,11 @@ class PengaturanmapelController extends Controller
      */
     public function index()
     {
-        return view('admin.mapel.index  ', [
+        return view('admin.jadwal.index', [
             'mapels' => Mapel::all(),
-            'datamapel' => Mapel::get()->count(),
-            'jurusans' => Jurusan::all(),
-            'tingkatans' => TingkatanKelas::all(),
+
+            'gurus' => Auth::user()::select()->where('key', 'guru86')->get(),
+
         ]);
     }
 
@@ -42,15 +42,7 @@ class PengaturanmapelController extends Controller
      */
     public function store(Request $request)
     {
-        foreach ($request->mapel as $key => $value) {
-            Mapel::create([
-                'mata_pelajaran' => $value['mata_pelajaran'],
-                'jurusan_id' => $value['jurusan_id'],
-                'tingkatan_kelas_id' => $value['tingkatan_kelas_id'],
-            ]);
-        }
-
-        return redirect('/pengaturanmapel')->with('success', 'mapel berhasil ditambah');
+        //
     }
 
     /**
@@ -84,19 +76,8 @@ class PengaturanmapelController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        $rules = [
-            'mata_pelajaran' => 'required',
-            'jurusan' => 'required',
-            'tingkatan_kelas' => 'required',
-
-        ];
-        $input = $request->validate($rules);
-
-        Mapel::where('id', $id)->update($input);
-        return redirect('/pengaturanmapel')->with('success', 'Password berhasil diubah');
+        //
     }
-
 
     /**
      * Remove the specified resource from storage.
@@ -106,7 +87,6 @@ class PengaturanmapelController extends Controller
      */
     public function destroy($id)
     {
-        Mapel::destroy('id', $id);
-        return redirect('/pengaturanmapel')->with('success', 'Data Berhasil Di hapus');
+        //
     }
 }

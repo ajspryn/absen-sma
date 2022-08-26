@@ -22,6 +22,26 @@
                     <!-- PENGATURAAN SEKOLAH -->
                     <div class="col-md-4 col-sm-6 col-12 kb-search-content">
                         <div class="card">
+                            <a href="/pengaturansekolah">
+                                <img src="../../../app-assets/images/illustration/sales.svg" class="card-img-top"
+                                    alt="knowledge-base-image" />
+
+                                <div class="card-body text-center">
+                                    <h4>Pengaturan Sekolah</h4>
+                                    <p class="text-body mt-1 mb-0">
+                                        Mengatur dan Menambahkan Mata Pelajaran
+                                    </p>
+                                </div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            <section id="knowledge-base-content">
+                <div class="row kb-search-content-info match-height">
+                    <!-- PENGATURAAN SEKOLAH -->
+                    <div class="col-md-4 col-sm-6 col-12 kb-search-content">
+                        <div class="card">
                             <a href="/pengaturanmapel">
                                 <img src="../../../app-assets/images/illustration/sales.svg" class="card-img-top"
                                     alt="knowledge-base-image" />
@@ -52,7 +72,7 @@
                     </div>
                     <div class="col-md-4 col-sm-6 col-12 kb-search-content">
                         <div class="card">
-                            <a href="/pengaturanjadwal">
+                            <a href="/pengaturanjadwalmapel">
                                 <img src="../../../app-assets/images/illustration/sales.svg" class="card-img-top"
                                     alt="knowledge-base-image" />
 

@@ -3,11 +3,11 @@
 namespace App\Http\Controllers;
 
 use App\Models\Jurusan;
-use App\Models\Mapel;
+use App\Models\Kelas;
 use App\Models\TingkatanKelas;
 use Illuminate\Http\Request;
 
-class PengaturanmapelController extends Controller
+class PengaturanSekolahController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -16,11 +16,10 @@ class PengaturanmapelController extends Controller
      */
     public function index()
     {
-        return view('admin.mapel.index  ', [
-            'mapels' => Mapel::all(),
-            'datamapel' => Mapel::get()->count(),
+        return view('admin.sekolah.index', [
             'jurusans' => Jurusan::all(),
-            'tingkatans' => TingkatanKelas::all(),
+            'tingkatan_kelass' => TingkatanKelas::all(),
+            'kelass' => Kelas::all(),
         ]);
     }
 
@@ -42,15 +41,33 @@ class PengaturanmapelController extends Controller
      */
     public function store(Request $request)
     {
-        foreach ($request->mapel as $key => $value) {
-            Mapel::create([
-                'mata_pelajaran' => $value['mata_pelajaran'],
-                'jurusan_id' => $value['jurusan_id'],
-                'tingkatan_kelas_id' => $value['tingkatan_kelas_id'],
-            ]);
+
+        if ($request->tingkatan_kelas == null) {
+            if ($request->kelas == null) {
+                Jurusan::create([
+                    'jurusan' => $request->jurusan,
+                ]);
+            }
+        } elseif ($request->jurusan == null) {
+
+            if ($request->kelas == null) {
+                TingkatanKelas::create([
+                    'tingkatan_kelas' => $request->tingkatan_kelas,
+                ]);
+            }
+        }
+        if ($request->jurusan == null) {
+
+            if ($request->tingakatan_kelas == null) {
+                Kelas::create([
+                    'kelas' => $request->kelas,
+                ]);
+            }
         }
 
-        return redirect('/pengaturanmapel')->with('success', 'mapel berhasil ditambah');
+
+
+        return redirect('/pengaturansekolah')->with('success', 'mapel berhasil ditambah');
     }
 
     /**
@@ -84,19 +101,8 @@ class PengaturanmapelController extends Controller
      */
     public function update(Request $request, $id)
     {
-
-        $rules = [
-            'mata_pelajaran' => 'required',
-            'jurusan' => 'required',
-            'tingkatan_kelas' => 'required',
-
-        ];
-        $input = $request->validate($rules);
-
-        Mapel::where('id', $id)->update($input);
-        return redirect('/pengaturanmapel')->with('success', 'Password berhasil diubah');
+        //
     }
-
 
     /**
      * Remove the specified resource from storage.
@@ -106,7 +112,10 @@ class PengaturanmapelController extends Controller
      */
     public function destroy($id)
     {
-        Mapel::destroy('id', $id);
-        return redirect('/pengaturanmapel')->with('success', 'Data Berhasil Di hapus');
+
+        Jurusan::destroy('id', $id);
+        TingkatanKelas::destroy('id', $id);
+        Kelas::destroy('id', $id);
+        return redirect('/pengaturansekolah')->with('success', 'Data Berhasil Di hapus');
     }
 }
