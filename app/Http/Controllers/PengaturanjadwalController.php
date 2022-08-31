@@ -24,8 +24,8 @@ class PengaturanjadwalController extends Controller
 
 
         return view('admin.jadwal.index', [
+            'jadwalmapels' => JadwalMapel::all(),
             'mapels' => Mapel::all(),
-
             'gurus' => Auth::user()::select()->where('key', 'guru86')->get(),
             'jurusans' => Jurusan::all(),
             'tingkatans' => TingkatanKelas::all(),
@@ -52,7 +52,7 @@ class PengaturanjadwalController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
+
         foreach ($request->jadwalmapel as $key => $value) {
             JadwalMapel::create([
                 'hari' => $value['hari'],
@@ -66,7 +66,7 @@ class PengaturanjadwalController extends Controller
             ]);
         }
 
-        return redirect('/pengaturanmapel')->with('success', 'mapel berhasil ditambah');
+        return redirect('/pengaturanjadwalmapels')->with('success', 'mapel berhasil ditambah');
     }
 
     /**

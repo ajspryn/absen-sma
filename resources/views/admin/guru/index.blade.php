@@ -398,8 +398,8 @@
                                                     </div>
                                                 </div>
 
-
-                                                <!--/ Basic table -->
+                                            </section>
+                                            <!--/ Basic table -->
                                         </div>
                                     </div>
                                 </div>

@@ -28,7 +28,7 @@
                         </div>
                         <div class="card-body">
                             <div class="row">
-                                <form action="pengaturanjadwalmapel" method="post" class="invoice-repeater">
+                                <form action="/pengaturanjadwalmapel" method="post" class="invoice-repeater">
                                     @csrf
                                     <div data-repeater-list="jadwalmapel">
                                         <div data-repeater-item>
@@ -40,7 +40,7 @@
                                                                 <!-- Earnings Card -->
                                                                 <div class="col-lg-12 col-md-6 col-8">
                                                                     <label class="form-label"
-                                                                        for="hari">Jurusan</label>
+                                                                        for="hari">Hari</label>
                                                                     <select class="select2 form-select" name="hari"
                                                                         id="hari">
                                                                         <option label="hari"></option>
@@ -131,11 +131,10 @@
                                                             <!-- Line Chart - Profit -->
                                                             <div class="col-lg-6 col-md-3 col-4">
 
-                                                                <label class="form-label"
-                                                                    for="tingkatan_kelas_id">Kelas</label>
-                                                                <select class="select2 form-select"
-                                                                    name="tingkatan_kelas_id" id="tingkatan_kelas_id">
-                                                                    <option label="tingkatan_kelas_id"></option>
+                                                                <label class="form-label" for="kelas_id">Kelas</label>
+                                                                <select class="select2 form-select" name="kelas_id"
+                                                                    id="kelas_id">
+                                                                    <option label="kelas_id"></option>
                                                                     @foreach ($kelass as $kelas)
                                                                         <option value="{{ $kelas->id }}">
                                                                             {{ $kelas->kelas }}</option>
@@ -162,11 +161,11 @@
                                                         </select>
                                                     </div>
                                                     <div class="col-lg-10 mb-12">
-                                                        <label class="form-label" for="guru_id">Guru
+                                                        <label class="form-label" for="user_id">Guru
                                                             Pengampu</label>
-                                                        <select class="select2 form-select" name="guru_id"
-                                                            id="guru_id">
-                                                            <option label="guru_ajar"></option>
+                                                        <select class="select2 form-select" name="user_id"
+                                                            id="user_id">
+                                                            <option label="user_id"></option>
                                                             @foreach ($gurus as $guru)
                                                                 <option value="{{ $guru->id }}">
                                                                     {{ $guru->name }}</option>
@@ -207,6 +206,55 @@
                             </div>
 
                             </form>
+                            <section id="basic-datatable">
+                                <div class="row">
+                                    <div class="col-12">
+                                        <div class="card">
+                                            <table class="datatables-basic table">
+                                                <thead>
+                                                    <tr>
+
+                                                        <th></th>
+                                                        <th>Hari</th>
+                                                        <th>Jam Mulai</th>
+                                                        <th>Jam Berakhir</th>
+                                                        <th>Mata Pelajaran</th>
+                                                        <th>Jurusan</th>
+                                                        <th>Tingkatan Kelas</th>
+                                                        <th>Kelas</th>
+                                                        <th>Guru Pengampu</th>
+                                                        <th>Action</th>
+
+                                                    </tr>
+                                                </thead>
+                                                <tbody>
+                                                    @foreach ($jadwalmapels as $jadwalmapel)
+                                                        <tr>
+                                                            <td></td>
+                                                            <td>{{ $jadwalmapel->hari }}</td>
+
+                                                            <td>{{ $jadwalmapel->jam_mulai }}</td>
+                                                            <td>{{ $jadwalmapel->jam_akhir }}</td>
+                                                            <td>{{ $jadwalmapel->mapel_id }}</td>
+                                                            <td>{{ $jadwalmapel->jurusan_id }}</td>
+                                                            <td>{{ $jadwalmapel->tingkatan_kelas_id }}</td>
+                                                            <td>{{ $jadwalmapel->kelas_id }}</td>
+                                                            <td>{{ $jadwalmapel->user_id }}</td>
+
+                                                            <td></td>
+
+
+
+
+                                                        </tr>
+                                                    @endforeach
+                                                </tbody>
+                                            </table>
+                                        </div>
+                                    </div>
+                                </div>
+
+                            </section>
                         </div>
 
                     </div>
