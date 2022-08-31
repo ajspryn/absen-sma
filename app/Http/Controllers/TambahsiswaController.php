@@ -14,7 +14,7 @@ class TambahsiswaController extends Controller
      */
     public function index()
     {
-        return view('admin.TambahSiswa', [
+        return view('admin.siswa.TambahSiswa', [
             'siswas' => Siswa::all()->last(),
         ]);
     }
@@ -70,7 +70,10 @@ class TambahsiswaController extends Controller
      */
     public function edit($id)
     {
-        //
+        return view('admin.siswa.EditSiswa', [
+            'siswa' => Siswa::select()->where('id', $id)->get()->first(),
+            'siswas' => Siswa::all(),
+        ]);
     }
 
     /**
@@ -82,7 +85,19 @@ class TambahsiswaController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $rules = [
+            'nis_siswa' => 'required',
+            'nisn_siswa' => 'required',
+            'nama_siswa' => 'required',
+            'jenis_kelamin' => 'required',
+            'jurusan_siswa' => 'required',
+            'tingkatan_kelas' => 'required',
+            'kelas_siswa' => 'required',
+        ];
+        $input = $request->validate($rules);
+
+        Siswa::where('id', $id)->update($input);
+        return redirect('/pengaturansiswa')->with('success', 'Data siswa Berhasil Di Ubah');
     }
 
     /**

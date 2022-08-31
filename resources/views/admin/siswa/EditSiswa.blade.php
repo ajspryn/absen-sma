@@ -25,10 +25,12 @@
                     <div class="col-md-6 col-12">
                         <div class="card">
                             <div class="card-header">
-                                <h4 class="card-title">Horizontal Form</h4>
+                                <h4 class="card-title">Edit Siswa</h4>
                             </div>
                             <div class="card-body">
-                                <form class="form form-horizontal" method="POST" action="/tambahsiswa ">
+                                <form class="form form-horizontal" method="POST"
+                                    action="/tambahsiswa/{{ $siswa->id }} ">
+                                    @method('put')
                                     @csrf
                                     <div class="row">
                                         <div class="col-12">
@@ -38,7 +40,8 @@
                                                 </div>
                                                 <div class="col-sm-9">
                                                     <input type="number" id="nis_siswa" class="form-control"
-                                                        name="nis_siswa" placeholder="Masukan Nomer NIS" />
+                                                        name="nis_siswa" placeholder="Masukan Nomer NIS"
+                                                        value="{{ $siswa->nis_siswa }}" />
                                                 </div>
                                             </div>
                                         </div>
@@ -49,7 +52,8 @@
                                                 </div>
                                                 <div class="col-sm-9">
                                                     <input type="number" id="nisn_siswa" class="form-control"
-                                                        name="nisn_siswa" placeholder="Masukan Nisn" />
+                                                        name="nisn_siswa" placeholder="Masukan Nisn"
+                                                        value="{{ $siswa->nisn_siswa }}" />
                                                 </div>
                                             </div>
                                         </div>
@@ -60,7 +64,8 @@
                                                 </div>
                                                 <div class="col-sm-9">
                                                     <input type="text" id="nama_siswa" class="form-control"
-                                                        name="nama_siswa" placeholder="Masukan nama" />
+                                                        name="nama_siswa" placeholder="Masukan nama"
+                                                        value="{{ $siswa->nama_siswa }}" />
                                                 </div>
                                             </div>
                                         </div>
@@ -72,7 +77,8 @@
                                                 </div>
                                                 <div class="col-sm-9">
                                                     <input type="text" id="jenis_kelamin" class="form-control"
-                                                        name="jenis_kelamin" placeholder="Masukan Jenis Kelamin" />
+                                                        name="jenis_kelamin" placeholder="Masukan Jenis Kelamin"
+                                                        value="{{ $siswa->jenis_kelamin }}" />
                                                 </div>
                                             </div>
                                         </div>
@@ -83,7 +89,8 @@
                                                 </div>
                                                 <div class="col-sm-9">
                                                     <input type="text" id="jurusan_siswa" class="form-control"
-                                                        name="jurusan_siswa" placeholder="Masukan Jurusan" />
+                                                        name="jurusan_siswa" placeholder="Masukan Jurusan"
+                                                        value="{{ $siswa->jurusan_siswa }}" />
                                                 </div>
                                             </div>
                                         </div>
@@ -95,7 +102,8 @@
                                                 </div>
                                                 <div class="col-sm-9">
                                                     <input type="text" id="tingkatan_kelas" class="form-control"
-                                                        name="tingkatan_kelas" placeholder="Masukan kelas" />
+                                                        name="tingkatan_kelas" placeholder="Masukan kelas"
+                                                        value="{{ $siswa->tingkatan_kelas }}" />
                                                 </div>
                                             </div>
                                         </div>
@@ -106,12 +114,13 @@
                                                 </div>
                                                 <div class="col-sm-9">
                                                     <input type="text" id="kelas_siswa" class="form-control"
-                                                        name="kelas_siswa" placeholder="Masukan kelas" />
+                                                        name="kelas_siswa" placeholder="Masukan kelas"
+                                                        value="{{ $siswa->kelas_siswa }}" />
                                                 </div>
                                             </div>
                                         </div>
                                         <div class="col-sm-9 offset-sm-3">
-                                            <button type="sumbit" class="btn btn-primary me-1">Submit</button>
+                                            <button type="sumbit" class="btn btn-primary me-1">Update</button>
                                             <button type="reset" class="btn btn-outline-secondary">Reset</button>
                                         </div>
                                     </div>
@@ -120,86 +129,15 @@
                         </div>
                     </div>
                     <!-- /FORM  -->
-                    <!-- TABLE  -->
-                    <div class="col-md-6 col-12">
-                        <div class="card">
-                            <div class="card-header">
-                                <h4 class="card-title">Data Siswa Baru di Tambahkan</h4>
-                            </div>
-                            <div class="card-body">
-                                <div class="content-body">
-                                    <!-- Basic Tables start -->
-                                    <div class="row" id="basic-table">
-                                        <div class="col-12">
-                                            <div class="card">
-                                                <div class="table-responsive">
-                                                    <table class="table">
-                                                        <thead>
-                                                            <tr>
-                                                                <th>NISN</th>
-                                                                <th>NIS</th>
-                                                                <th>Nama</th>
-                                                                <th>Jenis Kelamin</th>
-                                                                <th>Kelas</th>
-                                                                <th>Tingkat Kelas</th>
-                                                                <th>Kelas</th>
-                                                            </tr>
-                                                        </thead>
-                                                        <tbody>
-                                                            <tr>
-                                                                @if ($siswas)
-                                                                    <td>
-                                                                        <span
-                                                                            class="fw-bold">{{ $siswas->nisn_siswa }}</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span
-                                                                            class="fw-bold">{{ $siswas->nis_siswa }}</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span
-                                                                            class="fw-bold">{{ $siswas->nama_siswa }}</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span
-                                                                            class="fw-bold">{{ $siswas->jenis_kelamin }}</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span
-                                                                            class="fw-bold">{{ $siswas->jurusan_siswa }}</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span
-                                                                            class="fw-bold">{{ $siswas->tingkatan_kelas }}</span>
-                                                                    </td>
-                                                                    <td>
-                                                                        <span
-                                                                            class="fw-bold">{{ $siswas->kelas_siswa }}</span>
-                                                                    </td>
-                                                                @endif
-                                                            </tr>
-                                                        </tbody>
-                                                    </table>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <!-- Basic Tables end -->
 
-                                </div>
-                            </div>
-                        </div>
-                        <!-- /TABLE  -->
-                    </div>
-            </section>
-            <!-- Basic Horizontal form layout section end -->
+                    <!-- Basic Horizontal form layout section end -->
 
 
+                </div>
         </div>
     </div>
-</div>
-<!-- END: Content-->
+    <!-- END: Content-->
 
 
 
-@include('admin.footeradmin')
+    @include('admin.footeradmin')

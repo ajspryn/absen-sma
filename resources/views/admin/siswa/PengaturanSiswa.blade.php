@@ -20,35 +20,7 @@
         <div class="content-body">
             <!-- Dashboard Ecommerce Starts -->
             <section id="dashboard-ecommerce">
-                <div class="row match-height">
-                    <div class="col-lg-4 col-12">
-                        <div class="row match-height">
 
-                            <!-- Earnings Card -->
-                            <div class="col-lg-12 col-md-6 col-12">
-                                <div class="card earnings-card">
-                                    <div class="card-body">
-                                        <div class="row">
-                                            <h4 class="card-title mb-1">Cari Data Siswa</h4>
-                                            <div class="input-group">
-                                                <input type="text" class="form-control"
-                                                    placeholder="Isi untuk mencari jurnal"
-                                                    aria-describedby="button-addon3" />
-                                                <button class="btn btn-outline-primary" id="button-addon3"
-                                                    type="button">Tampilkan</button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                            <!--/ Earnings Card -->
-                            <!-- Earnings Card -->
-
-
-                        </div>
-
-                    </div>
-                </div>
                 <!-- Revenue Report Card -->
                 <div class="col-lg-12 col-12">
                     <div class="card card-revenue-budget">
@@ -62,6 +34,7 @@
                                                 <h4 class="card-title">Data Siswa</h4>
                                             </div>
                                             <!-- Basic table -->
+
                                             <section id="basic-datatable">
                                                 <div class="row">
                                                     <div class="col-12">
@@ -69,21 +42,78 @@
                                                             <table class="datatables-basic table">
                                                                 <thead>
                                                                     <tr>
-                                                                        <th></th>
-                                                                        <th></th>
-                                                                        <th>id</th>
-                                                                        <th>Name</th>
-                                                                        <th>Email</th>
-                                                                        <th>Date</th>
-                                                                        <th>Salary</th>
-                                                                        <th>Status</th>
+
+                                                                        <th>NISN</th>
+                                                                        <th>NIS</th>
+                                                                        <th>NAMA</th>
+                                                                        <th>JURUSAN</th>
+                                                                        <th>TINGKATAN KELAS</th>
+                                                                        <th>KELAS</th>
+                                                                        <th>ABSENSI</th>
+                                                                        <th>POINT</th>
                                                                         <th>Action</th>
                                                                     </tr>
                                                                 </thead>
+                                                                <tbody>
+
+                                                                        @foreach ($siswas as $siswa)
+                                                                            <tr>
+                                                                                <td>{{ $siswa->nisn_siswa }}</td>
+                                                                                <td>{{ $siswa->nis_siswa }}</td>
+                                                                                <td>{{ $siswa->nama_siswa }}</td>
+                                                                                <td>{{ $siswa->jurusan_siswa }}</td>
+                                                                                <td>{{ $siswa->tingkatan_kelas }}</td>
+                                                                                <td>{{ $siswa->kelas_siswa }}</td>
+                                                                                <td>
+                                                                                    Hadir :
+                                                                                    <br>
+                                                                                    Sakit :
+                                                                                    <br>
+                                                                                    Izin :
+                                                                                    <br>
+                                                                                    Alfa :
+                                                                                </td>
+                                                                                <td>
+
+                                                                                </td>
+                                                                                <td>
+                                                                                    <div class="btn-group">
+                                                                                        <button type="button"
+                                                                                            class="btn btn-primary btn-sm dropdown-toggle dropdown-toggle-split"
+                                                                                            data-bs-toggle="dropdown"
+                                                                                            aria-expanded="false">
+                                                                                        </button>
+                                                                                        <div
+                                                                                            class="dropdown-menu dropdown-menu-end">
+                                                                                            <a class="dropdown-item"
+                                                                                                href="/tambahsiswa/{{ $siswa->id }}/edit">Update</a>
+                                                                                            <form action="/tamabahsiswa"
+                                                                                                method="post"
+                                                                                                class="d-inline">
+                                                                                                @method('delete')
+                                                                                                @csrf
+                                                                                                <button
+                                                                                                    class="dropdown-item btn-flat-danger"><span>Hapus</span></button>
+                                                                                            </form>
+                                                                                            <div
+                                                                                                class="dropdown-divider">
+                                                                                            </div>
+                                                                                            <a class="dropdown-item"
+                                                                                                href="">Naik
+                                                                                                Kelas</a>
+                                                                                        </div>
+                                                                                    </div>
+                                                                                </td>
+                                                                            </tr>
+                                                                        @endforeach
+
+                                                                </tbody>
                                                             </table>
                                                         </div>
                                                     </div>
                                                 </div>
+
+
                                                 <!--/ Basic table -->
                                         </div>
                                     </div>
