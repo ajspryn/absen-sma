@@ -176,28 +176,13 @@
                                             </div>
 
                                             <hr />
-                                            <div class="col-md-2 mb-12">
 
-                                                <button class="btn btn-outline-danger text-nowrap px-1"
-                                                    data-repeater-delete type="button">
-                                                    <i data-feather="x" class="me-25"></i>
-                                                    <span>Delete</span>
-                                                </button>
-
-                                            </div>
                                         </div>
                                         <hr />
                                     </div>
                             </div>
-                            <div class="row">
-                                <div class="col-12">
-                                    <button class="btn btn-icon btn-primary" type="button" data-repeater-create>
-                                        <i data-feather="plus" class="me-25"></i>
-                                        <span>Add New</span>
-                                    </button>
-                                </div>
-                            </div>
-                            <br>
+
+
                             <div class="row">
                                 <div class="col-md-2 col-12 mb-50">
                                     <button type="sumbit" class="btn btn-success me-1">Simpan</button>

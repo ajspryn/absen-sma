@@ -66,7 +66,7 @@ class PengaturanjadwalController extends Controller
             ]);
         }
 
-        return redirect('/pengaturanjadwalmapels')->with('success', 'mapel berhasil ditambah');
+        return redirect('/pengaturanjadwalmapel')->with('success', 'mapel berhasil ditambah');
     }
 
     /**
