@@ -120,7 +120,7 @@
                                                     <tr>
                                                         <td></td>
                                                         <td>{{ $mapel->mata_pelajaran }}</td>
-                                                        <td>{{ $nama_jurusan }}</td>
+                                                        <td>{{ $mapel->jurusan_id }}</td>
                                                         <td>{{ $mapel->tingkatan_kelas_id }}</td>
 
                                                         <td>
