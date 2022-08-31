@@ -2,15 +2,10 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kelas;
-use App\Models\Mapel;
-use App\Models\Jurusan;
-use App\Models\JadwalMapel;
 use Illuminate\Http\Request;
 use App\Models\TingkatanKelas;
-use Illuminate\Support\Facades\Auth;
 
-class PengaturanjadwalController extends Controller
+class TingkatanKelasController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,19 +14,7 @@ class PengaturanjadwalController extends Controller
      */
     public function index()
     {
-
-        $najur = Mapel::get('jurusan_id');
-
-
-        return view('admin.jadwal.index', [
-            'mapels' => Mapel::all(),
-
-            'gurus' => Auth::user()::select()->where('key', 'guru86')->get(),
-            'jurusans' => Jurusan::all(),
-            'tingkatans' => TingkatanKelas::all(),
-            'kelass' => Kelas::all(),
-            'nama_jurusan' => Jurusan::select()->where("id", $najur)->get('jurusan'),
-        ]);
+        //
     }
 
     /**
@@ -52,21 +35,10 @@ class PengaturanjadwalController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
-        foreach ($request->jadwalmapel as $key => $value) {
-            JadwalMapel::create([
-                'hari' => $value['hari'],
-                'jam_mulai' => $value['jam_mulai'],
-                'jam_akhir' => $value['jam_akhir'],
-                'jurusan_id' => $value['jurusan_id'],
-                'tingkatan_kelas_id' => $value['tingkatan_kelas_id'],
-                'kelas_id' => $value['kelas_id'],
-                'mapel_id' => $value['mapel_id'],
-                'user_id' => $value['user_id'],
-            ]);
-        }
-
-        return redirect('/pengaturanmapel')->with('success', 'mapel berhasil ditambah');
+        TingkatanKelas::create([
+            'tingkatan_kelas' => $request->tingkatan_kelas,
+        ]);
+        return redirect('/pengaturansekolah')->with('success', 'Tingkatan kelas berhasil ditambah');
     }
 
     /**
@@ -111,6 +83,8 @@ class PengaturanjadwalController extends Controller
      */
     public function destroy($id)
     {
-        //
+        TingkatanKelas::destroy('id', $id);
+
+        return redirect('/pengaturansekolah')->with('success', 'Data Berhasil Di hapus');
     }
 }

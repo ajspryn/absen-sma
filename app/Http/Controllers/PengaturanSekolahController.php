@@ -41,33 +41,6 @@ class PengaturanSekolahController extends Controller
      */
     public function store(Request $request)
     {
-
-        if ($request->tingkatan_kelas == null) {
-            if ($request->kelas == null) {
-                Jurusan::create([
-                    'jurusan' => $request->jurusan,
-                ]);
-            }
-        } elseif ($request->jurusan == null) {
-
-            if ($request->kelas == null) {
-                TingkatanKelas::create([
-                    'tingkatan_kelas' => $request->tingkatan_kelas,
-                ]);
-            }
-        }
-        if ($request->jurusan == null) {
-
-            if ($request->tingakatan_kelas == null) {
-                Kelas::create([
-                    'kelas' => $request->kelas,
-                ]);
-            }
-        }
-
-
-
-        return redirect('/pengaturansekolah')->with('success', 'mapel berhasil ditambah');
     }
 
     /**
@@ -112,10 +85,8 @@ class PengaturanSekolahController extends Controller
      */
     public function destroy($id)
     {
-
-        Jurusan::destroy('id', $id);
         TingkatanKelas::destroy('id', $id);
         Kelas::destroy('id', $id);
-        return redirect('/pengaturansekolah')->with('success', 'Data Berhasil Di hapus');
+
     }
 }

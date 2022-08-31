@@ -28,17 +28,12 @@
                             <h4 class="card-title">Pengaturan Mapel</h4>
                         </div>
                         <div class="card-body">
-
                             <div class="row">
-
-
                                 <form action="/pengaturanmapel" method="post" class="invoice-repeater">
                                     @csrf
                                     <div data-repeater-list="mapel">
                                         <div data-repeater-item>
                                             <div class="row d-flex align-items-end">
-
-
                                                 <div class="col-md-4 col-12">
                                                     <div class="mb-1">
                                                         <label class="form-label" for="itemcost">Mata
@@ -48,44 +43,35 @@
                                                             placeholder="Isikan mata pelajaran" />
                                                     </div>
                                                 </div>
-
                                                 <div class="col-md-4 col-12">
                                                     <div class="mb-1">
                                                         <label class="form-label" for="jurusan_id">Jurusan</label>
-                                                        <select class="select2 form-select" name="jurusan_id"
-                                                            id="jurusan_id">
-                                                            <option label="Jurusan">
+                                                        <select class="form-select" id="jurusan_id">
                                                             </option>
                                                             @foreach ($jurusans as $jurusan)
                                                                 <option value="{{ $jurusan->id }}">
                                                                     {{ $jurusan->jurusan }}
                                                                 </option>
                                                             @endforeach
-
-
                                                         </select>
                                                     </div>
                                                 </div>
                                                 <div class="col-md-4 col-12">
                                                     <div class="mb-1">
                                                         <label class="form-label" for="tingkatan_kelas_id">Tingkatan
-                                                            Kelas</label>
-                                                        <select class="select2 form-select" name="tingkatan_kelas_id"
-                                                            id="tingkatan_kelas_id">
-                                                            <option label="Tingkatan Kelas">
+                                                            Kwlas</label>
+                                                        <select class="form-select" id="tingkatan_kelas_id">
+                                                            </option>
                                                             </option>
                                                             @foreach ($tingkatans as $tingkatan)
-                                                                <option value="{{ $jurusan->id }}">
+                                                                <option value="{{ $tingkatan->id }}">
                                                                     {{ $tingkatan->tingkatan_kelas }}
                                                                 </option>
                                                             @endforeach
-
-
                                                         </select>
+
                                                     </div>
                                                 </div>
-
-
                                                 <div class="col-md-2 col-12 mb-50">
                                                     <div class="mb-1">
                                                         <button class="btn btn-outline-danger text-nowrap px-1"
@@ -115,10 +101,7 @@
 
                                         </div>
                                     </div>
-
                                 </form>
-
-
                                 <div class="col-12">
                                     <div class="card">
                                         <table class="datatables-basic table">
@@ -137,7 +120,7 @@
                                                     <tr>
                                                         <td></td>
                                                         <td>{{ $mapel->mata_pelajaran }}</td>
-                                                        <td>{{ $mapel->jurusan_id }}</td>
+                                                        <td>{{ $nama_jurusan }}</td>
                                                         <td>{{ $mapel->tingkatan_kelas_id }}</td>
 
                                                         <td>
@@ -147,10 +130,6 @@
                                                                     data-bs-toggle="dropdown" aria-expanded="false">
                                                                 </button>
                                                                 <div class="dropdown-menu dropdown-menu-end">
-
-
-
-
                                                                     <div class="modal-size-xl d-inline-block"><a
                                                                             class="dropdown-item" data-bs-toggle="modal"
                                                                             data-bs-target="#xlarge">Update</a> </div>

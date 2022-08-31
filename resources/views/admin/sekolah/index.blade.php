@@ -26,7 +26,6 @@
                             <h4 class="card-title">Pengaturan Sekolah</h4>
                         </div>
                         <div class="card-body">
-
                             <!-- Basic Horizontal form layout section start -->
                             <!-- FORM  -->
                             <span class="fw-bold">DAFTAR JURUSAN</span>
@@ -47,14 +46,11 @@
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <form class="form form-horizontal" action="/pengaturansekolah"
-                                                    method="post">
-
+                                                <form class="form form-horizontal" action="/jurusan" method="post">
                                                     @csrf
                                                     <div data-repeater-list="invoice">
                                                         <div data-repeater-item>
                                                             <div class="row d-flex align-items-end">
-
                                                                 <div class="col-12">
                                                                     <div class="mb-1 row">
                                                                         <div class="col-sm-3">
@@ -68,8 +64,6 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-
-
                                                                 <br>
                                                                 <div class="row">
                                                                     <div class="col-md-2 col-12 mb-50">
@@ -83,7 +77,6 @@
                                                     </div>
                                                 </form>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
@@ -91,7 +84,6 @@
                             <table class="table table-striped">
                                 <div class="table-responsive">
                                     <thead>
-
                                         <tr>
                                             <th>Jurusan</th>
                                             <th>Actions</th>
@@ -101,7 +93,6 @@
                                         @foreach ($jurusans as $jurusan)
                                             <tr>
                                                 <td>
-
                                                     <span class="fw-bold">{{ $jurusan->jurusan }}</span>
                                                 </td>
                                                 <td>
@@ -111,25 +102,20 @@
                                                             data-bs-toggle="dropdown" aria-expanded="false">
                                                         </button>
                                                         <div class="dropdown-menu dropdown-menu-end">
-
-
-
-
-
-                                                            <form action="/pengaturansekolah/{{ $jurusan->id }}"
-                                                                method="post" class="d-inline">
+                                                            <form action="/jurusan/{{ $jurusan->id }}" method="post"
+                                                                class="d-inline">
                                                                 @method('delete')
                                                                 @csrf
                                                                 <button
                                                                     class="dropdown-item btn-flat-danger"><span>Hapus</span></button>
                                                             </form>
-
                                                         </div>
                                                     </div>
                                                 </td>
                                             </tr>
                                         @endforeach
                                     </tbody>
+                                </div>
                             </table>
                             <br>
                             <!-- FORM  -->
@@ -151,14 +137,12 @@
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <form class="form form-horizontal" action="/pengaturansekolah"
+                                                <form class="form form-horizontal" action="/tingkatankelas"
                                                     method="post">
-
                                                     @csrf
                                                     <div data-repeater-list="invoice">
                                                         <div data-repeater-item>
                                                             <div class="row d-flex align-items-end">
-
                                                                 <div class="col-12">
                                                                     <div class="mb-1 row">
                                                                         <div class="col-sm-3">
@@ -174,14 +158,11 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-
-
                                                                 <br>
                                                                 <div class="row">
                                                                     <div class="col-md-2 col-12 mb-50">
                                                                         <button type="sumbit"
                                                                             class="btn btn-success me-1">Simpan</button>
-
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -189,7 +170,6 @@
                                                     </div>
                                                 </form>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
@@ -199,7 +179,7 @@
                                     <thead>
 
                                         <tr>
-                                            <th>Jurusan</th>
+                                            <th>Tingkatan Kelas</th>
                                             <th>Actions</th>
                                         </tr>
                                     </thead>
@@ -218,13 +198,7 @@
                                                             data-bs-toggle="dropdown" aria-expanded="false">
                                                         </button>
                                                         <div class="dropdown-menu dropdown-menu-end">
-
-
-
-
-
-                                                            <form
-                                                                action="/pengaturansekolah/{{ $tingkatan_kelas->id }}"
+                                                            <form action="/tingkatankelas/{{ $tingkatan_kelas->id }}"
                                                                 method="post" class="d-inline">
                                                                 @method('delete')
                                                                 @csrf
@@ -256,9 +230,7 @@
                                                     aria-label="Close"></button>
                                             </div>
                                             <div class="modal-body">
-                                                <form class="form form-horizontal" action="/pengaturansekolah"
-                                                    method="post">
-
+                                                <form class="form form-horizontal" action="/kelas" method="post">
                                                     @csrf
                                                     <div data-repeater-list="invoice">
                                                         <div data-repeater-item>
@@ -277,8 +249,6 @@
                                                                         </div>
                                                                     </div>
                                                                 </div>
-
-
                                                                 <br>
                                                                 <div class="row">
                                                                     <div class="col-md-2 col-12 mb-50">
@@ -292,7 +262,6 @@
                                                     </div>
                                                 </form>
                                             </div>
-
                                         </div>
                                     </div>
                                 </div>
@@ -313,7 +282,23 @@
 
                                                     <span class="fw-bold">{{ $kelas->kelas }}</span>
                                                 </td>
-                                                <td>Peter Charls</td>
+                                                <td>
+                                                    <div class="btn-group">
+                                                        <button type="button"
+                                                            class="btn btn-primary btn-sm dropdown-toggle dropdown-toggle-split"
+                                                            data-bs-toggle="dropdown" aria-expanded="false">
+                                                        </button>
+                                                        <div class="dropdown-menu dropdown-menu-end">
+                                                            <form action="/kelas/{{ $kelas->id }}" method="post"
+                                                                class="d-inline">
+                                                                @method('delete')
+                                                                @csrf
+                                                                <button
+                                                                    class="dropdown-item btn-flat-danger"><span>Hapus</span></button>
+                                                            </form>'
+                                                        </div>
+                                                    </div>
+                                                </td>
                                             </tr>
                                         @endforeach
                                     </tbody>

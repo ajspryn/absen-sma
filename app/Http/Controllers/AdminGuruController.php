@@ -2,15 +2,12 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\Kelas;
-use App\Models\Mapel;
-use App\Models\Jurusan;
-use App\Models\JadwalMapel;
 use Illuminate\Http\Request;
-use App\Models\TingkatanKelas;
+use Illuminate\Foundation\Auth\User;
 use Illuminate\Support\Facades\Auth;
+use Illuminate\Support\Facades\Hash;
 
-class PengaturanjadwalController extends Controller
+class AdminGuruController extends Controller
 {
     /**
      * Display a listing of the resource.
@@ -19,19 +16,7 @@ class PengaturanjadwalController extends Controller
      */
     public function index()
     {
-
-        $najur = Mapel::get('jurusan_id');
-
-
-        return view('admin.jadwal.index', [
-            'mapels' => Mapel::all(),
-
-            'gurus' => Auth::user()::select()->where('key', 'guru86')->get(),
-            'jurusans' => Jurusan::all(),
-            'tingkatans' => TingkatanKelas::all(),
-            'kelass' => Kelas::all(),
-            'nama_jurusan' => Jurusan::select()->where("id", $najur)->get('jurusan'),
-        ]);
+        return view('admin.guru.index', ['gurus' => Auth::user()::select()->where('key', 'guru86')->get(),]);
     }
 
     /**
@@ -52,22 +37,8 @@ class PengaturanjadwalController extends Controller
      */
     public function store(Request $request)
     {
-        return $request;
-        foreach ($request->jadwalmapel as $key => $value) {
-            JadwalMapel::create([
-                'hari' => $value['hari'],
-                'jam_mulai' => $value['jam_mulai'],
-                'jam_akhir' => $value['jam_akhir'],
-                'jurusan_id' => $value['jurusan_id'],
-                'tingkatan_kelas_id' => $value['tingkatan_kelas_id'],
-                'kelas_id' => $value['kelas_id'],
-                'mapel_id' => $value['mapel_id'],
-                'user_id' => $value['user_id'],
-            ]);
-        }
-
-        return redirect('/pengaturanmapel')->with('success', 'mapel berhasil ditambah');
     }
+
 
     /**
      * Display the specified resource.
@@ -100,7 +71,24 @@ class PengaturanjadwalController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        $adaw = bcrypt($request->password);
+
+
+        $rules = [
+            'password' => 'required',
+
+        ];
+        $input = $request->validate($rules);
+
+        Auth::user()::where('id', $id)->update($input);
+
+
+        User::where('id', $id)->update([
+
+            'password' => Hash::make($request['password']),
+
+        ]);
+        return redirect('/pengaturanguru')->with('success', 'Password berhasil diubah');
     }
 
     /**

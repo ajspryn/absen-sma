@@ -15,7 +15,7 @@ class CreateTingkatanKelasTable extends Migration
     {
         Schema::create('tingkatan_kelas', function (Blueprint $table) {
             $table->id();
-            $table->string('tingkatan_kelas');
+            $table->string('tingkatan_kelas')->nullable();
             $table->timestamps();
         });
     }

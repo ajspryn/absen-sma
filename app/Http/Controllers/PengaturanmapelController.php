@@ -16,11 +16,13 @@ class PengaturanmapelController extends Controller
      */
     public function index()
     {
+        $najur = Mapel::get('jurusan_id');
         return view('admin.mapel.index  ', [
             'mapels' => Mapel::all(),
             'datamapel' => Mapel::get()->count(),
             'jurusans' => Jurusan::all(),
             'tingkatans' => TingkatanKelas::all(),
+            'nama_jurusan' => Jurusan::select()->where('jurusan', $najur)->get(),
         ]);
     }
 
@@ -49,6 +51,7 @@ class PengaturanmapelController extends Controller
                 'tingkatan_kelas_id' => $value['tingkatan_kelas_id'],
             ]);
         }
+
 
         return redirect('/pengaturanmapel')->with('success', 'mapel berhasil ditambah');
     }
