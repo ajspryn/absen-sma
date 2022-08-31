@@ -94,6 +94,63 @@
                                         </th>
                                     </tr>
                                 </thead>
+                                <tbody>
+                                    <tr>
+                                        <td></td>
+                                        <td></td>
+                                        <td>
+                                            <center>No</center>
+                                        </td>
+                                        <td>
+                                            <center>NIS</center>
+                                        </td>
+                                        <td>
+                                            <center>NISN</center>
+                                        </td>
+                                        <td>
+                                            <center>Nama Siswa</center>
+                                        </td>
+                                        <td>
+                                            <center>L/P</center>
+                                        </td>
+                                        <td>
+                                            <center></center>
+                                        </td>
+                                        <td>
+                                            <center></center>
+                                        </td>
+                                        <td>
+                                            <center></center>
+                                        </td>
+                                        <td>
+                                            <center></center>
+                                        </td>
+                                        <td>
+                                            <center></center>
+                                        </td>
+                                        <td>
+                                            <center></center>
+                                        </td>
+                                        <td>
+                                            <center></center>
+                                        </td>
+                                        <td>
+                                            <center></center>
+                                        </td>
+                                        <td>
+                                            <center></center>
+                                        </td>
+                                        <td>
+                                            <center></center>
+                                        </td>
+                                        <td>
+                                            <center></center>
+                                        </td>
+                                        <td>
+                                            <center></center>
+                                        </td>
+                                    </tr>
+                                </tbody>
                             </table>
                         </div>
                     </div>

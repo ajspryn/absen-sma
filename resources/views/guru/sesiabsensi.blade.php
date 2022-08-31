@@ -76,7 +76,7 @@
                                     <tr>
                                         <td>123456789012</td>
                                         <td>1234567890</td>
-                                        <td>Budi Sudarso</td>
+                                        <td>Budi Sudarso (contoh)</td>
                                         <td>
                                             <center>
                                                 <div class="form-check form-check-primary">
@@ -111,23 +111,78 @@
                                         </td>
                                         <td>
                                             <center>
-                                                <div class="d-flex inline">
-                                                    <button class="badge bg-primary decrement-btn"
-                                                        onclick="">-</button>
-                                                    <input type="text" name="poin"
-                                                        class="form-control point text-center" value="1"
-                                                        style="width:50px;">
-                                                    <button class="badge bg-primary increment-btn"
-                                                        onclick="">+</button>
+                                                <div class="d-flex inline text-center" style="width:100px;">
+                                                    <button class="badge bg-primary border-0 decrement-btn">-</button>
+                                                    <input type="text" name="quantity "
+                                                        class="form-control qty-input text-center" value="1">
+                                                    <button class="badge bg-primary border-0 increment-btn">+</button>
                                                 </div>
                                             </center>
                                         </td>
                                         <td></td>
                                     </tr>
-
-
+                                    @foreach ($siswas as $siswa)
+                                        <tr>
+                                            <td>{{ $siswa->nisn_siswa }}</td>
+                                            <td>{{ $siswa->nis_siswa }}</td>
+                                            <td>{{ $siswa->nama_siswa }}</td>
+                                            <td>
+                                                <center>
+                                                    <div class="form-check form-check-primary">
+                                                        <input type="checkbox" class="form-check-input"
+                                                            id="colorCheck1" />
+                                                        <label class="form-check-label" for="colorCheck1"></label>
+                                                    </div>
+                                                </center>
+                                            </td>
+                                            <td>
+                                                <center>
+                                                    <div class="form-check form-check-warning">
+                                                        <input type="checkbox" class="form-check-input"
+                                                            id="colorCheck1" />
+                                                        <label class="form-check-label" for="colorCheck1"></label>
+                                                    </div>
+                                                </center>
+                                            </td>
+                                            <td>
+                                                <center>
+                                                    <div class="form-check form-check-info">
+                                                        <input type="checkbox" class="form-check-input"
+                                                            id="colorCheck1" />
+                                                        <label class="form-check-label" for="colorCheck1"></label>
+                                                    </div>
+                                                </center>
+                                            </td>
+                                            <td>
+                                                <center>
+                                                    <div class="form-check form-check-danger">
+                                                        <input type="checkbox" class="form-check-input"
+                                                            id="colorCheck1" />
+                                                        <label class="form-check-label" for="colorCheck1"></label>
+                                                    </div>
+                                                </center>
+                                            </td>
+                                            <td>
+                                                <center>
+                                                    <div class="d-flex inline">
+                                                        <button class="badge bg-primary decrement-btn border-0"
+                                                            onclick="">-</button>
+                                                        <input type="text" name="poin"
+                                                            class="form-control point text-center" value="1"
+                                                            style="width:50px;">
+                                                        <button class="badge bg-primary increment-btn border-0"
+                                                            onclick="">+</button>
+                                                    </div>
+                                                </center>
+                                            </td>
+                                            <td></td>
+                                        </tr>
+                                    @endforeach
                                 </tbody>
                             </table>
+                            <div class="d-grid col-3 ml-1 mt-3 mb-1">
+                                <a href="/home" type="button" class="btn btn-primary">Selesai</a>
+                            </div>
                         </div>
                     </div>
                 </div>
@@ -143,24 +198,23 @@
         $('.increment-btn').click(function(e) {
             e.preventDefault();
 
-            var inc_value = $('.point').val();
+            var inc_value = $('.qty-input').val();
             var value = parseInt(inc_value, 10);
             value = isNaN(value) ? 0 : value;
-            if (value < 10) {
+            if (value < 100) {
                 value++;
-                $('.point').val(value);
+                $('.qty-input').val(value);
             }
         });
 
         $('.decrement-btn').click(function(e) {
             e.preventDefault();
-
-            var dec_value = $('.point').val();
+            var dec_value = $('.qty-input').val();
             var value = parseInt(dec_value, 10);
             value = isNaN(value) ? 0 : value;
             if (value > 1) {
                 value--;
-                $('.point').val(value);
+                $('.qty-input').val(value);
             }
         });
     });

@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Siswa;
 use Illuminate\Http\Request;
 
 class SesiabsensiController extends Controller
@@ -13,7 +14,9 @@ class SesiabsensiController extends Controller
      */
     public function index()
     {
-        return view('guru.sesiabsensi');
+        return view('guru.sesiabsensi', [
+            'siswas' => Siswa::all(),
+        ]);
     }
 
     /**
