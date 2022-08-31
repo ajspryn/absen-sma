@@ -111,275 +111,20 @@
                                         </td>
                                         <td>
                                             <center>
-                                                <form action="" method="post" class="d-inline">
-                                                    @method('delete')
-                                                    @csrf
-                                                    <button class="badge bg-primary border-0"
-                                                        onclick="return confirm('Apakah anda yakin ingin menghapus data?')">-</button>
-                                                </form>
-                                                <form action="" method="" class="d-inline">
-                                                    <button class="badge bg-light text-dark border-0">
-                                                        Or
-                                                    </button>
-                                                </form>
-                                                <form action="" method="post" class="d-inline">
-                                                    @method('put')
-                                                    @csrf
-                                                    <button class="badge bg-primary border-0"
-                                                        onclick="return confirm('Apakah anda yakin ingin menghapus data?')">+</button>
-                                                </form>
+                                                <div class="d-flex inline">
+                                                    <button class="badge bg-primary decrement-btn"
+                                                        onclick="">-</button>
+                                                    <input type="text" name="poin"
+                                                        class="form-control point text-center" value="1"
+                                                        style="width:50px;">
+                                                    <button class="badge bg-primary increment-btn"
+                                                        onclick="">+</button>
+                                                </div>
                                             </center>
                                         </td>
                                         <td></td>
                                     </tr>
-                                    <tr>
-                                        <td>123456789012</td>
-                                        <td>1234567890</td>
-                                        <td>Budi Sudarso</td>
-                                        <td>
-                                            <center>
-                                                <div class="form-check form-check-primary">
-                                                    <input type="checkbox" class="form-check-input" id="colorCheck1" />
-                                                    <label class="form-check-label" for="colorCheck1"></label>
-                                                </div>
-                                            </center>
-                                        </td>
-                                        <td>
-                                            <center>
-                                                <div class="form-check form-check-warning">
-                                                    <input type="checkbox" class="form-check-input" id="colorCheck1" />
-                                                    <label class="form-check-label" for="colorCheck1"></label>
-                                                </div>
-                                            </center>
-                                        </td>
-                                        <td>
-                                            <center>
-                                                <div class="form-check form-check-info">
-                                                    <input type="checkbox" class="form-check-input" id="colorCheck1" />
-                                                    <label class="form-check-label" for="colorCheck1"></label>
-                                                </div>
-                                            </center>
-                                        </td>
-                                        <td>
-                                            <center>
-                                                <div class="form-check form-check-danger">
-                                                    <input type="checkbox" class="form-check-input" id="colorCheck1" />
-                                                    <label class="form-check-label" for="colorCheck1"></label>
-                                                </div>
-                                            </center>
-                                        </td>
-                                        <td>
-                                            <center>
-                                                <form action="" method="post" class="d-inline">
-                                                    @method('delete')
-                                                    @csrf
-                                                    <button class="badge bg-primary border-0"
-                                                        onclick="return confirm('Apakah anda yakin ingin menghapus data?')">-</button>
-                                                </form>
-                                                <form action="" method="" class="d-inline">
-                                                    <button class="badge bg-light text-dark border-0">
-                                                        Or
-                                                    </button>
-                                                </form>
-                                                <form action="" method="post" class="d-inline">
-                                                    @method('put')
-                                                    @csrf
-                                                    <button class="badge bg-primary border-0"
-                                                        onclick="return confirm('Apakah anda yakin ingin menghapus data?')">+</button>
-                                                </form>
-                                            </center>
-                                        </td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>123456789012</td>
-                                        <td>1234567890</td>
-                                        <td>Budi Sudarso</td>
-                                        <td>
-                                            <center>
-                                                <div class="form-check form-check-primary">
-                                                    <input type="checkbox" class="form-check-input"
-                                                        id="colorCheck1" />
-                                                    <label class="form-check-label" for="colorCheck1"></label>
-                                                </div>
-                                            </center>
-                                        </td>
-                                        <td>
-                                            <center>
-                                                <div class="form-check form-check-warning">
-                                                    <input type="checkbox" class="form-check-input"
-                                                        id="colorCheck1" />
-                                                    <label class="form-check-label" for="colorCheck1"></label>
-                                                </div>
-                                            </center>
-                                        </td>
-                                        <td>
-                                            <center>
-                                                <div class="form-check form-check-info">
-                                                    <input type="checkbox" class="form-check-input"
-                                                        id="colorCheck1" />
-                                                    <label class="form-check-label" for="colorCheck1"></label>
-                                                </div>
-                                            </center>
-                                        </td>
-                                        <td>
-                                            <center>
-                                                <div class="form-check form-check-danger">
-                                                    <input type="checkbox" class="form-check-input"
-                                                        id="colorCheck1" />
-                                                    <label class="form-check-label" for="colorCheck1"></label>
-                                                </div>
-                                            </center>
-                                        </td>
-                                        <td>
-                                            <center>
-                                                <form action="" method="post" class="d-inline">
-                                                    @method('delete')
-                                                    @csrf
-                                                    <button class="badge bg-primary border-0"
-                                                        onclick="return confirm('Apakah anda yakin ingin menghapus data?')">-</button>
-                                                </form>
-                                                <form action="" method="" class="d-inline">
-                                                    <button class="badge bg-light text-dark border-0">
-                                                        Or
-                                                    </button>
-                                                </form>
-                                                <form action="" method="post" class="d-inline">
-                                                    @method('put')
-                                                    @csrf
-                                                    <button class="badge bg-primary border-0"
-                                                        onclick="return confirm('Apakah anda yakin ingin menghapus data?')">+</button>
-                                                </form>
-                                            </center>
-                                        </td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>123456789012</td>
-                                        <td>1234567890</td>
-                                        <td>Budi Sudarso</td>
-                                        <td>
-                                            <center>
-                                                <div class="form-check form-check-primary">
-                                                    <input type="checkbox" class="form-check-input"
-                                                        id="colorCheck1" />
-                                                    <label class="form-check-label" for="colorCheck1"></label>
-                                                </div>
-                                            </center>
-                                        </td>
-                                        <td>
-                                            <center>
-                                                <div class="form-check form-check-warning">
-                                                    <input type="checkbox" class="form-check-input"
-                                                        id="colorCheck1" />
-                                                    <label class="form-check-label" for="colorCheck1"></label>
-                                                </div>
-                                            </center>
-                                        </td>
-                                        <td>
-                                            <center>
-                                                <div class="form-check form-check-info">
-                                                    <input type="checkbox" class="form-check-input"
-                                                        id="colorCheck1" />
-                                                    <label class="form-check-label" for="colorCheck1"></label>
-                                                </div>
-                                            </center>
-                                        </td>
-                                        <td>
-                                            <center>
-                                                <div class="form-check form-check-danger">
-                                                    <input type="checkbox" class="form-check-input"
-                                                        id="colorCheck1" />
-                                                    <label class="form-check-label" for="colorCheck1"></label>
-                                                </div>
-                                            </center>
-                                        </td>
-                                        <td>
-                                            <center>
-                                                <form action="" method="post" class="d-inline">
-                                                    @method('delete')
-                                                    @csrf
-                                                    <button class="badge bg-primary border-0"
-                                                        onclick="return confirm('Apakah anda yakin ingin menghapus data?')">-</button>
-                                                </form>
-                                                <form action="" method="" class="d-inline">
-                                                    <button class="badge bg-light text-dark border-0">
-                                                        Or
-                                                    </button>
-                                                </form>
-                                                <form action="" method="post" class="d-inline">
-                                                    @method('put')
-                                                    @csrf
-                                                    <button class="badge bg-primary border-0"
-                                                        onclick="return confirm('Apakah anda yakin ingin menghapus data?')">+</button>
-                                                </form>
-                                            </center>
-                                        </td>
-                                        <td></td>
-                                    </tr>
-                                    <tr>
-                                        <td>123456789012</td>
-                                        <td>1234567890</td>
-                                        <td>Budi Sudarso</td>
-                                        <td>
-                                            <center>
-                                                <div class="form-check form-check-primary">
-                                                    <input type="checkbox" class="form-check-input"
-                                                        id="colorCheck1" />
-                                                    <label class="form-check-label" for="colorCheck1"></label>
-                                                </div>
-                                            </center>
-                                        </td>
-                                        <td>
-                                            <center>
-                                                <div class="form-check form-check-warning">
-                                                    <input type="checkbox" class="form-check-input"
-                                                        id="colorCheck1" />
-                                                    <label class="form-check-label" for="colorCheck1"></label>
-                                                </div>
-                                            </center>
-                                        </td>
-                                        <td>
-                                            <center>
-                                                <div class="form-check form-check-info">
-                                                    <input type="checkbox" class="form-check-input"
-                                                        id="colorCheck1" />
-                                                    <label class="form-check-label" for="colorCheck1"></label>
-                                                </div>
-                                            </center>
-                                        </td>
-                                        <td>
-                                            <center>
-                                                <div class="form-check form-check-danger">
-                                                    <input type="checkbox" class="form-check-input"
-                                                        id="colorCheck1" />
-                                                    <label class="form-check-label" for="colorCheck1"></label>
-                                                </div>
-                                            </center>
-                                        </td>
-                                        <td>
-                                            <center>
-                                                <form action="" method="post" class="d-inline">
-                                                    @method('delete')
-                                                    @csrf
-                                                    <button class="badge bg-primary border-0"
-                                                        onclick="return confirm('Apakah anda yakin ingin menghapus data?')">-</button>
-                                                </form>
-                                                <form action="" method="" class="d-inline">
-                                                    <button class="badge bg-light text-dark border-0">
-                                                        Or
-                                                    </button>
-                                                </form>
-                                                <form action="" method="post" class="d-inline">
-                                                    @method('put')
-                                                    @csrf
-                                                    <button class="badge bg-primary border-0"
-                                                        onclick="return confirm('Apakah anda yakin ingin menghapus data?')">+</button>
-                                                </form>
-                                            </center>
-                                        </td>
-                                        <td></td>
-                                    </tr>
+
 
                                 </tbody>
                             </table>
@@ -393,5 +138,32 @@
     </div>
 </div>
 <!-- END: Content-->
+<script>
+    $(document).ready(function() {
+        $('.increment-btn').click(function(e) {
+            e.preventDefault();
+
+            var inc_value = $('.point').val();
+            var value = parseInt(inc_value, 10);
+            value = isNaN(value) ? 0 : value;
+            if (value < 10) {
+                value++;
+                $('.point').val(value);
+            }
+        });
+
+        $('.decrement-btn').click(function(e) {
+            e.preventDefault();
+
+            var dec_value = $('.point').val();
+            var value = parseInt(dec_value, 10);
+            value = isNaN(value) ? 0 : value;
+            if (value > 1) {
+                value--;
+                $('.point').val(value);
+            }
+        });
+    });
+</script>
 
 @include('guru.footerguru')

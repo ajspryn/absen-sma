@@ -74,17 +74,21 @@
                                                 <p class="form-label" for="basicSelect" style="color:white">Mata
                                                     Pelajaran</p>
                                                 <select class="form-select" id="basicSelect">
-                                                    <option>Matematika</option>
-                                                    <option>IPA</option>
-                                                    <option>B. Indonesia</option>
+                                                    @foreach ($mapels as $mapel)
+                                                        <option value="{{ $mapel->id }}">
+                                                            {{ $mapel->mata_pelajaran }}
+                                                        </option>
+                                                    @endforeach
                                                 </select>
                                             </div>
                                             <div class="mb-1">
                                                 <p class="form-label" for="basicSelect" style="color:white">Kelas</p>
                                                 <select class="form-select" id="basicSelect">
-                                                    <option>X MIPA 1</option>
-                                                    <option>XI MIPA 2</option>
-                                                    <option>XII MIPA 3</option>
+                                                    @foreach ($kelass as $kelas)
+                                                        <option value="{{ $kelas->id }}">
+                                                            {{ $kelas->kelas }}
+                                                        </option>
+                                                    @endforeach
                                                 </select>
                                             </div>
 

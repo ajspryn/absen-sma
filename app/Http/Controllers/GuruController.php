@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Mapel;
 use Illuminate\Http\Request;
 
 class GuruController extends Controller
@@ -13,7 +14,9 @@ class GuruController extends Controller
      */
     public function index()
     {
-        return view('guru.index');
+        return view('guru.index', [
+            'mapels' => Mapel::all(),
+        ]);
     }
 
     /**
