@@ -10,6 +10,9 @@
                 data-bs-toggle=""><i data-feather="bar-chart-2"></i><span data-i18n="Charts &amp; Maps">Rekap
                     Absensi</span></a>
         </li>
+        <li class="nav-item" data-menu=""><a class="dropdown-item d-flex align-items-center" href="/jurnalguru"
+                data-bs-toggle=""><i data-feather="file-text"></i><span data-i18n="Charts &amp; Maps">Jurnal</span></a>
+        </li>
     </ul>
 </div>
 </div>

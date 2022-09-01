@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Jurnalguru;
 use Illuminate\Http\Request;
 
 class Welcome3Controller extends Controller
@@ -13,7 +14,9 @@ class Welcome3Controller extends Controller
      */
     public function index()
     {
-        return view('welcome3');
+        return view('welcome3', [
+            'jurnals' => Jurnalguru::all(),
+        ]);
     }
 
     /**

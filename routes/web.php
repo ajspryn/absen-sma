@@ -1,25 +1,26 @@
 <?php
 
-use App\Http\Controllers\AdminGuruController;
+use App\Models\Jurusan;
+use App\Models\TingkatanKelas;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\GuruController;
+use App\Http\Controllers\KelasController;
+use App\Http\Controllers\JurusanController;
 use App\Http\Controllers\Welcome2Controller;
 use App\Http\Controllers\Welcome3Controller;
+use App\Http\Controllers\AdminGuruController;
 use App\Http\Controllers\GurupiketController;
 use App\Http\Controllers\Auth\LoginController;
-use App\Http\Controllers\JurusanController;
-use App\Http\Controllers\KelasController;
-use App\Http\Controllers\PengaturanjadwalController;
-use App\Http\Controllers\PengaturanmapelController;
+use App\Http\Controllers\JurnalguruController;
 use App\Http\Controllers\SesiabsensiController;
 use App\Http\Controllers\TambahsiswaController;
 use App\Http\Controllers\RekapabsensiController;
-use App\Http\Controllers\PengaturansiswaController;
-use App\Http\Controllers\PengaturansekolahController;
 use App\Http\Controllers\TingkatanKelasController;
-use App\Models\Jurusan;
-use App\Models\TingkatanKelas;
+use App\Http\Controllers\PengaturanmapelController;
+use App\Http\Controllers\PengaturansiswaController;
+use App\Http\Controllers\PengaturanjadwalController;
+use App\Http\Controllers\PengaturansekolahController;
 
 /*
 |--------------------------------------------------------------------------
@@ -57,3 +58,4 @@ Route::resource('/guru', GuruController::class);
 Route::resource('/pengaturanguru', AdminGuruController::class);
 Route::resource('/rekapabsensi', RekapabsensiController::class);
 Route::resource('/sesiabsensi', SesiabsensiController::class);
+Route::resource('/jurnalguru', JurnalguruController::class);

@@ -6,11 +6,11 @@
         <li class="nav-item" data-menu=""><a class="dropdown-item d-flex align-items-center" href="/home"
                 data-bs-toggle=""><i data-feather="home"></i><span data-i18n="Dashboards">Dashboards</span></a>
         </li>
-        <li class="active" data-menu=""><a class="dropdown-item d-flex align-items-center" href="/rekapabsensi"
+        <li class="nav-item" data-menu=""><a class="dropdown-item d-flex align-items-center" href="/rekapabsensi"
                 data-bs-toggle=""><i data-feather="bar-chart-2"></i><span data-i18n="Charts &amp; Maps">Rekap
                     Absensi</span></a>
         </li>
-        <li class="nav-item" data-menu=""><a class="dropdown-item d-flex align-items-center" href="/jurnalguru"
+        <li class="active" data-menu=""><a class="dropdown-item d-flex align-items-center" href="/jurnalguru"
                 data-bs-toggle=""><i data-feather="file-text"></i><span data-i18n="Charts &amp; Maps">Jurnal</span></a>
         </li>
     </ul>
@@ -23,17 +23,31 @@
 <div class="app-content content ">
     <div class="content-wrapper container-xxl p-0">
         <div class="content-header row">
-            <div class="content-header col-md-9 col-12 mb-2">
-
+            <div class="content-header col-12 mb-1">
                 <div class="col-12">
-                    <center>
-                        <h2 class="content-header-title float-start mb-0">Rekap Absensi Siswa</h2>
-                    </center>
+                    <h2 class="content-header-title float-start mb-0">Data Jurnal</h2>
+                    <a href="/jurnalguru/create" type="button" class="btn btn-primary float-end">Tambah Data Jurnal</a>
                 </div>
 
             </div>
         </div>
         <div class="content-body">
+            @if (Session::has('success'))
+                <div class="alert alert-success" role="alert">
+                    <h4 class="alert-heading">Berhasil</h4>
+                    <div class="alert-body">
+                        {{ session('success') }}
+                    </div>
+                </div>
+            @endif
+            @if (Session::has('status'))
+                <div class="alert alert-danger" role="alert">
+                    <h4 class="alert-heading">Berhasil</h4>
+                    <div class="alert-body">
+                        {{ session('status') }}
+                    </div>
+                </div>
+            @endif
             <!-- Basic table -->
             <section id="basic-datatable">
                 <div class="row">
@@ -48,111 +62,73 @@
                                             <center>No</center>
                                         </th>
                                         <th>
-                                            <center>NIS</center>
+                                            <center>Judul</center>
                                         </th>
                                         <th>
-                                            <center>NISN</center>
+                                            <center>Deskripsi</center>
                                         </th>
                                         <th>
-                                            <center>Nama Siswa</center>
+                                            <center>Nama Guru</center>
                                         </th>
                                         <th>
-                                            <center>L/P</center>
+                                            <center>File</center>
                                         </th>
                                         <th>
-                                            <center>P1</center>
+                                            <center>Action</center>
                                         </th>
-                                        <th>
-                                            <center>P2</center>
-                                        </th>
-                                        <th>
-                                            <center>P3</center>
-                                        </th>
-                                        <th>
-                                            <center>P4</center>
-                                        </th>
-                                        <th>
-                                            <center>P5</center>
-                                        </th>
-                                        <th>
-                                            <center>P6</center>
-                                        </th>
-                                        <th>
-                                            <center>P7</center>
-                                        </th>
-                                        <th>
-                                            <center>P8</center>
-                                        </th>
-                                        <th>
-                                            <center>P9</center>
-                                        </th>
-                                        <th>
-                                            <center>P10</center>
-                                        </th>
-                                        <th>
-                                            <center>P11</center>
-                                        </th>
-                                        <th>
-                                            <center>P12</center>
-                                        </th>
+
                                     </tr>
                                 </thead>
                                 <tbody>
-                                    <tr>
-                                        <td></td>
-                                        <td></td>
-                                        <td>
-                                            <center>No</center>
-                                        </td>
-                                        <td>
-                                            <center>NIS</center>
-                                        </td>
-                                        <td>
-                                            <center>NISN</center>
-                                        </td>
-                                        <td>
-                                            <center>Nama Siswa</center>
-                                        </td>
-                                        <td>
-                                            <center>L/P</center>
-                                        </td>
-                                        <td>
-                                            <center></center>
-                                        </td>
-                                        <td>
-                                            <center></center>
-                                        </td>
-                                        <td>
-                                            <center></center>
-                                        </td>
-                                        <td>
-                                            <center></center>
-                                        </td>
-                                        <td>
-                                            <center></center>
-                                        </td>
-                                        <td>
-                                            <center></center>
-                                        </td>
-                                        <td>
-                                            <center></center>
-                                        </td>
-                                        <td>
-                                            <center></center>
-                                        </td>
-                                        <td>
-                                            <center></center>
-                                        </td>
-                                        <td>
-                                            <center></center>
-                                        </td>
-                                        <td>
-                                            <center></center>
-                                        </td>
-                                        <td>
-                                            <center></center>
-                                        </td>
-                                    </tr>
+                                    @php
+                                        $no = 1;
+                                    @endphp
+                                    @if (!empty($jurnals))
+
+                                        @foreach ($jurnals as $jurnal)
+                                            <tr>
+                                                <td></td>
+                                                <td></td>
+                                                <td>
+                                                    <center>{{ $no++ }}</center>
+                                                </td>
+                                                <td>
+                                                    <center>{{ $jurnal->judul_jurnal }}</center>
+                                                </td>
+                                                <td>
+                                                    <center>{{ $jurnal->deskripsi }}</center>
+                                                </td>
+                                                <td>
+                                                    <center>{{ $jurnal->nama_guru }}</center>
+                                                </td>
+                                                <td>
+                                                    <center>
+                                                        <a href="{{ asset('storage/' . $jurnal->file_jurnal) }}"
+                                                            target="blank"
+                                                            class="btn btn-icon btn-success border-0"><span
+                                                                data-feather="eye"></span></a>
+                                                    </center>
+                                                </td>
+                                                <td>
+                                                    <center>
+                                                        <a href="{{ url('/jurnalguru' . '/' . $jurnal->id . '/edit') }}"
+                                                            class="btn btn-icon btn-warning border-0"><span
+                                                                data-feather="edit"></span>
+                                                        </a>
+                                                        <form action="{{ url('/jurnalguru', $jurnal->id) }}"
+                                                            method="post" class="d-inline">
+                                                            @method('delete')
+                                                            @csrf
+                                                            <button class="btn btn-icon btn-danger border-0"
+                                                                onclick="return confirm('Apakah anda yakin ingin menghapus data?')"><span
+                                                                    data-feather="x-circle"></span></button>
+                                                        </form>
+                                                    </center>
+                                                </td>
+
+                                            </tr>
+                                        @endforeach
+                                    @endif
                                 </tbody>
                             </table>
                         </div>
@@ -191,8 +167,8 @@
                                 </div>
                                 <div class="mb-4">
                                     <label class="form-label" for="basic-icon-default-salary">Salary</label>
-                                    <input type="text" id="basic-icon-default-salary" class="form-control dt-salary"
-                                        placeholder="$12000" aria-label="$12000" />
+                                    <input type="text" id="basic-icon-default-salary"
+                                        class="form-control dt-salary" placeholder="$12000" aria-label="$12000" />
                                 </div>
                                 <button type="button" class="btn btn-primary data-submit me-1">Submit</button>
                                 <button type="reset" class="btn btn-outline-secondary"
