@@ -46,7 +46,8 @@
                                                 <div class="col-md-4 col-12">
                                                     <div class="mb-1">
                                                         <label class="form-label" for="jurusan_id">Jurusan</label>
-                                                        <select class="form-select" id="jurusan_id">
+                                                        <select class="form-select" id="jurusan_id" name="jurusan_id"
+                                                            placeholder="Pilih Jurusan">
                                                             </option>
                                                             @foreach ($jurusans as $jurusan)
                                                                 <option value="{{ $jurusan->id }}">
@@ -59,8 +60,10 @@
                                                 <div class="col-md-4 col-12">
                                                     <div class="mb-1">
                                                         <label class="form-label" for="tingkatan_kelas_id">Tingkatan
-                                                            Kwlas</label>
-                                                        <select class="form-select" id="tingkatan_kelas_id">
+                                                            Kelas</label>
+                                                        <select class="form-select" id="tingkatan_kelas_id"
+                                                            name="tingkatan_kelas_id"
+                                                            placeholder="Pilih Tingkatan Kelas">
                                                             </option>
                                                             </option>
                                                             @foreach ($tingkatans as $tingkatan)
@@ -132,7 +135,8 @@
                                                                 <div class="dropdown-menu dropdown-menu-end">
                                                                     <div class="modal-size-xl d-inline-block"><a
                                                                             class="dropdown-item" data-bs-toggle="modal"
-                                                                            data-bs-target="#xlarge">Update</a> </div>
+                                                                            data-bs-target="#xlarge">Update</a>
+                                                                    </div>
                                                                     <form action="/pengaturanmapel/{{ $mapel->id }}"
                                                                         method="post" class="d-inline">
                                                                         @method('delete')
@@ -243,10 +247,7 @@
 
                                                                         </form>
                                                                     </div>
-                                                                    <div class="modal-footer">
-                                                                        <button type="button" class="btn btn-primary"
-                                                                            data-bs-dismiss="modal">Accept</button>
-                                                                    </div>
+
                                                                 </div>
                                                             </div>
                                                         </div>

@@ -44,6 +44,7 @@ class PengaturanmapelController extends Controller
      */
     public function store(Request $request)
     {
+
         foreach ($request->mapel as $key => $value) {
             Mapel::create([
                 'mata_pelajaran' => $value['mata_pelajaran'],
